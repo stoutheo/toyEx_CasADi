@@ -36,5 +36,9 @@ endif()
 include_directories(${CASADI_INCLUDE_DIR})
 
 # add the executable
-add_executable (libUse libUse.cpp)
-target_link_libraries (libUse  ${CASADI_LIBRARIES})
+add_executable (libUseFun libUseFunction.cpp)
+target_link_libraries (libUseFun  ${CASADI_LIBRARIES})
+
+# add the executable
+add_executable (libUseSol libUseSolver.cpp)
+target_link_libraries (libUseSol  ${CASADI_LIBRARIES})

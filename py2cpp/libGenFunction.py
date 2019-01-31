@@ -18,7 +18,7 @@ z = vertcat(sin(x[0]*y),cos(x[1]*sqrt(y)-x[2]),x[3])
 f = Function('f',[x,y],[z])
 
 #  make the generator for storing all info as .so
-cg = CodeGenerator('libExample')
+cg = CodeGenerator('libExampleFun')
 cg.add(f)
 cg.add(f.forward(1))
 cg.add(f.reverse(1))
@@ -27,7 +27,7 @@ cg.add(f.reverse(1).forward(1))
 cg.generate()
 
 #  compile it
-system("gcc -fPIC -shared -O3 libExample.c -o libExample.so")
+system("gcc -fPIC -shared -O3 libExampleFun.c -o libExampleFun.so")
 
 # if we wanted to load it in python
 # f_ext = external("f","./code.so")
@@ -36,8 +36,8 @@ system("gcc -fPIC -shared -O3 libExample.c -o libExample.so")
 import shutil
 
 # move it to the c_code folder
-shutil.move("libExample.c", "c_code/libExample.c")
+shutil.move("libExampleFun.c", "c_code/libExampleFun.c")
 
 # move it to the lib folder
-shutil.move("libExample.so", "lib/libExample.so")
+shutil.move("libExampleFun.so", "lib/libExampleFun.so")
 #

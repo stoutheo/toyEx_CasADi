@@ -9,7 +9,7 @@ void usage_cplusplus(){
   cout << endl;
 
   // Use CasADi's "external" to load the compiled function
-  casadi::Function f = casadi::external("f", "../../lib/libExample.so");
+  casadi::Function f = casadi::external("f", "../../lib/libExampleFun.so");
 
   // Use like any other CasADi function
 
