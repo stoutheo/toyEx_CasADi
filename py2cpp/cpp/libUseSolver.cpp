@@ -25,8 +25,11 @@ void usage_cplusplus(){
   // Solve the NLP
   res = solver(arg);
 
-  // Print solution
   cout << "-----" << endl;
+  // Print stats of the solution
+  casadi::Dict stats = solver.stats();
+  cout << "Did it succeed? : = " << stats.at("success") << endl;
+  // Print solution
   cout << "objective at solution = " << res.at("f") << endl;
   cout << "primal solution = " << res.at("x") << endl;
   cout << "dual solution (x) = " << res.at("lam_x") << endl;
